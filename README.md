@@ -1,6 +1,6 @@
 # **Watcher-Soft**
 
-Watcher-Soft est un logicielle de monitoring pour Ubuntu serveur. Ce dernier a été développé dans le cadre d'un projet pédagogique à [l'université d'avignon](https://ceri.univ-avignon.fr/).
+Watcher-Soft est un logiciel de monitoring pour Ubuntu serveur. Ce dernier a été développé dans le cadre d'un projet pédagogique à [l'université d'avignon](https://ceri.univ-avignon.fr/). Ce devoir est le fruit du travail d'Aubertin Emmanuel.
 
 ## **SOMMAIRE :**</br>
 ----
@@ -81,7 +81,8 @@ Voici un exemple de graphe généré par [watcher-cli.sh](cli/watcher-cli.sh) :
 
 Watcher-soft bénéficie d'un système d'alerte par mail, personnalisable tant to le contenu que l'envoi. En effet, vous avez la possibilité de personnaliser le contenue du mail avec le [template](alerters/templates/mail.txt). De plus, vous pouvez paramétrer l'envoie de mail grâce au fichier présent dans le dossier [alerters/conf](alerters/conf/). Dans le ficher [mail.conf.json](alerters/conf/mail.conf.json) vous rentrerez la configuration du serveur SMTP de votre choix. Ensuite, nous avons le fichier [receivers.conf](alerters/conf/receivers.conf), ici, il s'agit de choisir à qui l'on envoie le mail (RECEIVER), et qui sera en copie caché (BCC).
 Pour envoyé un mail, il existe de manière, la première est de passer par l'api (voir [ici](#api)), et la seconde et de lancer le script [MAIL_alerters.sh](alerters/MAIL_alerters.sh)
-<div id='orchestrateur'/>  
+<div id='orchestrateur'/>
+
 ## **L'orchestrateur :**
 
 L'orchestrateur est le cœur du Back-end de Watcher-soft. En effet, c'est à lui d'amorcer toutes les procédures d'exécution, allant de l'exécution des sondes, au script d'alerte. À chaque exécution, il veille au bon fonctionnement de Watcher-soft, en effet, il peut recréer la base de données, redémarré les services web...
