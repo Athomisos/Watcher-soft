@@ -27,7 +27,9 @@ wget https://raw.githubusercontent.com/Athomisos/Watcher-soft/main/install.sh &&
 ## **ARCHITECTURE**
 ----
 ![archi](archi.png)
-<div id='Collecte-d’informations'/> 
+
+<div id='Collecte-d’informations'/>
+
 ### **Collecte d’informations**
 
 Dans Watcher-soft la collecte d'information est faite par des sondes (probes en anglais). Elles doivent toutes etre dans [probes/](probes/) pour etre executé. Ces sondes ont des nom et des sortie semi-structuré, ce qui permet l'ajout d’une nouvelle sonde sans modifié manuelle du code. Elles sont executées par [l'orchestrateur](#L'orchestrateur).
