@@ -9,8 +9,6 @@
 __name__ = "Watcher-Soft-API"
 
 import flask, sqlite3, sys, json, include, os
-from flask import render_template, jsonify
-from flask_assets import Bundle, Environment
 from flask_cors import CORS
 from flask_mail import Mail, Message
 

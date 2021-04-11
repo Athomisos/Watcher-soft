@@ -8,13 +8,11 @@
 
 __name__ = "Watcher-Soft"
 
-import flask, include, sqlite3, sys, urllib, os, requests, json
-from flask import render_template, jsonify, send_file
-from flask_assets import Bundle, Environment
+import flask, include, sqlite3, sys, requests, json
+from flask import render_template
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
-assets = Environment(app)
 
 ###########################################| INDEX |###########################################
 @app.route('/index', methods=['GET'])
