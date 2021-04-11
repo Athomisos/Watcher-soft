@@ -14,7 +14,8 @@ Watcher-Soft est un logicielle de monitoring pour Ubuntu serveur. Ce dernier a �
     - **[Application web](#Application-web)**</br>
 1. **[Mes choix face au sujet](#Mes-choix-face-au-sujet)**
 
-<div id='INSTALATION'/>  
+<div id='INSTALATION'/>
+
 ## **INSTALATION**
 ----
 
@@ -22,6 +23,7 @@ Watcher-Soft est un logicielle de monitoring pour Ubuntu serveur. Ce dernier a �
 wget https://raw.githubusercontent.com/Athomisos/Watcher-soft/main/install.sh && chmod +x install.sh && sudo ./install.sh
 ```
 <div id='ARCHITECTURE'/>  
+
 ## **ARCHITECTURE**
 ----
 ![archi](archi.png)
@@ -49,6 +51,7 @@ Example de sortie de la sonde qui sureveille la RAM:
 OK: L'utilisateur manu consomme 6483542016 de RAM  | manu_mem=6483542016;8000000000;12000000000; 
 ```
 <div id='Stockage-et-archivage'/>
+
 ## **Stockage et archivage :**
 
 Toutes les données sont dans le dossier [datas/](datas/). Par défaut il existe quatre sous répertoire, chacun étant dédier a un type de donnée particulier. Ces quatre sont :
@@ -63,6 +66,7 @@ Toutes les données sont dans le dossier [datas/](datas/). Par défaut il existe
 
 La base de données SQLite3 est générée et mis à jour par l'orchestrateur, cela permet d'ajouter une sonde sans avoir a modifié manuellement la base de données.
 <div id='Affichage'/>  
+
 ## **Affichage :**
 
 Watcher-soft vous avez la possibilité de consulté les graphe depuis un terminal, pour ce faire, il vous suffira d'executé [watcher-cli.sh](cli/watcher-cli.sh).
@@ -70,6 +74,7 @@ Watcher-soft vous avez la possibilité de consulté les graphe depuis un termina
 Voici un exemple de graphe généré par [watcher-cli.sh](cli/watcher-cli.sh) :
 ![cli graphe](CLI_graphe.png)
 <div id='Alerte'/>  
+
 ## **Alerte :**
 
 Watcher-soft bénéficie d'un système d'alerte par mail, personnalisable tant to le contenu que l'envoi. En effet, vous avez la possibilité de personnaliser le contenue du mail avec le [template](alerters/templates/mail.txt). De plus, vous pouvez paramétrer l'envoie de mail grâce au fichier présent dans le dossier [alerters/conf](alerters/conf/). Dans le ficher [mail.conf.json](alerters/conf/mail.conf.json) vous rentrerez la configuration du serveur SMTP de votre choix. Ensuite, nous avons le fichier [receivers.conf](alerters/conf/receivers.conf), ici, il s'agit de choisir à qui l'on envoie le mail (RECEIVER), et qui sera en copie caché (BCC).
@@ -85,6 +90,7 @@ Une fois les bases de données mis a jours, il regener les fichier [dat](datas/d
 
 Par défaut il sera lancer toute les minutes par la crontab.
 <div id='Application-web'/>  
+
 ## **Application web :**
 
 Watcher-soft possède une interface ergonomique, ainsi qu'une api. De cette manière, il est possible de modifier le front indépendamment du back et réciproquement indépendamment du back et réciproquement.
@@ -145,6 +151,7 @@ GET /probes HTTP/1.1
 Host: IP-SERVER:5000
 ```
 <div id='Mes-choix-face-au-sujet'/>  
+
 ## **Mes choix face au sujet :**
 
  1. Collecte d’informations :
