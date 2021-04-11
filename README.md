@@ -6,12 +6,12 @@ Watcher-Soft est un logicielle de monitoring pour Ubuntu serveur. Ce dernier a �
 ----
 1. **[INSTALATION](#INSTALATION)**</br>
 1. **[ARCHITECTURE](#ARCHITECTURE)**</br>
-    - **[Collecte d’informations](#Collecte-d’informations)**</br>
-    - **[Stockage et archivage](#Stockage-et-archivage)**</br>
-    - **[Affichage](#Affichage)**</br>
-    - **[Alerte](#Alerte)**</br>
-    - **[L'orchestrateur](#L'orchestrateur)**</br>
-    - **[Application web](#Application-web)**</br>
+    - **[Collecte d’informations](##Collecte-d’informations)**</br>
+    - **[Stockage et archivage](##Stockage-et-archivage)**</br>
+    - **[Affichage](##Affichage)**</br>
+    - **[Alerte](##Alerte)**</br>
+    - **[L'orchestrateur](##L'orchestrateur)**</br>
+    - **[Application web](##Application-web)**</br>
 1. **[Mes choix face au sujet](#Mes-choix-face-au-sujet)**
 ## **INSTALATION**
 ----
