@@ -1,0 +1,1 @@
+Watcher Soft vous informe que votre sonde ||sonde|| est actuellement en état ||state||.

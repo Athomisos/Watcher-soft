@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/src/css/main.css">
+        <link rel="icon" type="image/png" href="favicon.png">        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src= "https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <title>Watcher-Soft</title>
+        </head>    <body class="bg-gradient-to-r from-blue-100 to-gray-200 ">
+        <header class="w-full container mx-auto">
+            <div class="w-full flex items-center justify-between">
+                <p class="flex items-center text-blue-500 no-underline hover:no-underline font-bold text-2xl lg:text-4xl uppercase select-none">
+                    <span><</span><span>/</span>Watcher<span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-purple-500 to-blue-500 font-normal text-2xl lg:text-3xl">Soft</span><span>></span>
+                </p>
+                <div class="flex w-1/2 justify-end content-center">
+                    <a class="inline-block text-blue-500 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out" href="https://github.com/Athomisos" target="_blank">
+                        <i class="fa fa-github fa-2x"></i>
+                    </a>
+                    <a class="inline-block text-blue-500 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out" href="https://www.linkedin.com/in/emmanuel-aubertin/" target="_blank">
+                        <i class="fa fa-linkedin fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </header><style>  .graph:hover   {     z-index:555555 !important;   }</style>
+<script>
+    window.onload = function(){
+        setTimeout(() => { document.location.reload(); } , 60000);
+        
+          }      </script>
+   <div class="container mx-auto pt-4 text-blue-500">
+            <h1 class="text-center font-bold uppercase text-xl sm:text-2xl md:text-2xl xl:text-4xl">dashboard :</h1>
+            <div class="container lg:mx-8 xl:mx-8 2xl:mx-8 pt-4 text-blue-500 flex justify-center">
+            <table class="table-fixed w-auto lg:w-1/2 xl:w-1/2 2xl:w-1/2 ">
+              <thead>
+                <tr>
+                  <th class="w-1/6">Probes</th>
+                  <th class="w-1/4">Status</th>
+                  <th class="w-auto">Info</th>
+                </tr>
+              </thead>
+              <tbody>
+<tr>
+                      <td class="border border-blue-600"><p class="flex justify-center">HDD</p></td>
+<td class="border border-blue-600 bg-red-500 text-gray-200"><p class="flex justify-center">CRITICAL</p></td>
+                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consome 224512Mo</p><p class="flex justify-center"> L'utilisateur root consome 464Mo </p></td>
+                </tr>
+<tr>
+                      <td class="border border-blue-600"><p class="flex justify-center">USER</p></td>
+<td class="border border-blue-600 bg-green-300"><p class="flex justify-center">Ok</p></td>                  <td class="border border-blue-600 "><p class="flex justify-center"> Utilisateurs connectes</p></td>
+                </tr>
+<tr>
+                      <td class="border border-blue-600"><p class="flex justify-center">MEM</p></td>
+<td class="border border-blue-600 bg-red-500 text-gray-200"><p class="flex justify-center">CRITICAL</p></td>
+                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consomme 3933974528 de RAM  </p></td>
+                </tr>
+<tr>
+                      <td class="border border-blue-600"><p class="flex justify-center">CPU</p></td>
+<td class="border border-blue-600 bg-red-500 text-gray-200"><p class="flex justify-center">CRITICAL</p></td>
+                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consomme 11.15 0e cpu  </p></td>
+                </tr>
+  </tbody></table>
+</div><div class="mt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
+<div id="home_root" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
+<script>Highcharts.getJSON(
+              'http://localhost:5000/rrd/json?filename=data-home_root.dat',
+        function (data) {
+        Highcharts.chart('home_root', {
+          chart: {
+            backgroundColor: 'rgba(255, 255, 255, 0)',            zoomType: 'x',
+            borderColor: '#3B82F6',
+            borderRadius: 10,
+            borderWidth: 1,
+            type: 'line'
+          },
+          lang: {
+            loading: 'Chargement...',
+            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
+            exportButtonTitle: "Exporter",
+            printButtonTitle: "Imprimer",
+            rangeSelectorFrom: "Du",
+            rangeSelectorTo: "au",
+            rangeSelectorZoom: "Période",
+            downloadPNG: 'Télécharger en PNG',
+            downloadJPEG: 'Télécharger en JPEG',
+            downloadPDF: 'Télécharger en PDF',
+            downloadSVG: 'Télécharger en SVG',
+            resetZoom: "Réinitialiser le zoom",
+            resetZoomTitle: "Réinitialiser le zoom",
+            thousandsSep: " ",
+            decimalPoint: ',' 
+        },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'HOME_ROOT'
+          },
+          xAxis: {
+            type: 'datetime'
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            area: {
+              fillColor: {
+                linearGradient: {
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1
+                },
+                stops: [
+                  [0, Highcharts.getOptions().colors[0]],
+                  [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+              },
+              marker: {
+                radius: 2
+              },
+              lineWidth: 1,
+              states: {
+                hover: {
+                  lineWidth: 1
+                }
+              },
+              threshold: null
+            }
+          },
+          series: [{
+            type: 'area',
+            name: 'VALUE',
+            data: data
+          }]
+        });
+      }
+    );
+</script>
+<div id="home_manu" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
+<script>Highcharts.getJSON(
+              'http://localhost:5000/rrd/json?filename=data-home_manu.dat',
+        function (data) {
+        Highcharts.chart('home_manu', {
+          chart: {
+            backgroundColor: 'rgba(255, 255, 255, 0)',            zoomType: 'x',
+            borderColor: '#3B82F6',
+            borderRadius: 10,
+            borderWidth: 1,
+            type: 'line'
+          },
+          lang: {
+            loading: 'Chargement...',
+            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
+            exportButtonTitle: "Exporter",
+            printButtonTitle: "Imprimer",
+            rangeSelectorFrom: "Du",
+            rangeSelectorTo: "au",
+            rangeSelectorZoom: "Période",
+            downloadPNG: 'Télécharger en PNG',
+            downloadJPEG: 'Télécharger en JPEG',
+            downloadPDF: 'Télécharger en PDF',
+            downloadSVG: 'Télécharger en SVG',
+            resetZoom: "Réinitialiser le zoom",
+            resetZoomTitle: "Réinitialiser le zoom",
+            thousandsSep: " ",
+            decimalPoint: ',' 
+        },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'HOME_MANU'
+          },
+          xAxis: {
+            type: 'datetime'
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            area: {
+              fillColor: {
+                linearGradient: {
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1
+                },
+                stops: [
+                  [0, Highcharts.getOptions().colors[0]],
+                  [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+              },
+              marker: {
+                radius: 2
+              },
+              lineWidth: 1,
+              states: {
+                hover: {
+                  lineWidth: 1
+                }
+              },
+              threshold: null
+            }
+          },
+          series: [{
+            type: 'area',
+            name: 'VALUE',
+            data: data
+          }]
+        });
+      }
+    );
+</script>
+<div id="nbr_user" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
+<script>Highcharts.getJSON(
+              'http://localhost:5000/rrd/json?filename=data-nbr_user.dat',
+        function (data) {
+        Highcharts.chart('nbr_user', {
+          chart: {
+            backgroundColor: 'rgba(255, 255, 255, 0)',            zoomType: 'x',
+            borderColor: '#3B82F6',
+            borderRadius: 10,
+            borderWidth: 1,
+            type: 'line'
+          },
+          lang: {
+            loading: 'Chargement...',
+            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
+            exportButtonTitle: "Exporter",
+            printButtonTitle: "Imprimer",
+            rangeSelectorFrom: "Du",
+            rangeSelectorTo: "au",
+            rangeSelectorZoom: "Période",
+            downloadPNG: 'Télécharger en PNG',
+            downloadJPEG: 'Télécharger en JPEG',
+            downloadPDF: 'Télécharger en PDF',
+            downloadSVG: 'Télécharger en SVG',
+            resetZoom: "Réinitialiser le zoom",
+            resetZoomTitle: "Réinitialiser le zoom",
+            thousandsSep: " ",
+            decimalPoint: ',' 
+        },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'NBR_USER'
+          },
+          xAxis: {
+            type: 'datetime'
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            area: {
+              fillColor: {
+                linearGradient: {
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1
+                },
+                stops: [
+                  [0, Highcharts.getOptions().colors[0]],
+                  [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+              },
+              marker: {
+                radius: 2
+              },
+              lineWidth: 1,
+              states: {
+                hover: {
+                  lineWidth: 1
+                }
+              },
+              threshold: null
+            }
+          },
+          series: [{
+            type: 'area',
+            name: 'VALUE',
+            data: data
+          }]
+        });
+      }
+    );
+</script>
+<div id="manu_mem" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
+<script>Highcharts.getJSON(
+              'http://localhost:5000/rrd/json?filename=data-manu_mem.dat',
+        function (data) {
+        Highcharts.chart('manu_mem', {
+          chart: {
+            backgroundColor: 'rgba(255, 255, 255, 0)',            zoomType: 'x',
+            borderColor: '#3B82F6',
+            borderRadius: 10,
+            borderWidth: 1,
+            type: 'line'
+          },
+          lang: {
+            loading: 'Chargement...',
+            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
+            exportButtonTitle: "Exporter",
+            printButtonTitle: "Imprimer",
+            rangeSelectorFrom: "Du",
+            rangeSelectorTo: "au",
+            rangeSelectorZoom: "Période",
+            downloadPNG: 'Télécharger en PNG',
+            downloadJPEG: 'Télécharger en JPEG',
+            downloadPDF: 'Télécharger en PDF',
+            downloadSVG: 'Télécharger en SVG',
+            resetZoom: "Réinitialiser le zoom",
+            resetZoomTitle: "Réinitialiser le zoom",
+            thousandsSep: " ",
+            decimalPoint: ',' 
+        },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'MANU_MEM'
+          },
+          xAxis: {
+            type: 'datetime'
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            area: {
+              fillColor: {
+                linearGradient: {
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1
+                },
+                stops: [
+                  [0, Highcharts.getOptions().colors[0]],
+                  [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+              },
+              marker: {
+                radius: 2
+              },
+              lineWidth: 1,
+              states: {
+                hover: {
+                  lineWidth: 1
+                }
+              },
+              threshold: null
+            }
+          },
+          series: [{
+            type: 'area',
+            name: 'VALUE',
+            data: data
+          }]
+        });
+      }
+    );
+</script>
+<div id="manu_cpu" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
+<script>Highcharts.getJSON(
+              'http://localhost:5000/rrd/json?filename=data-manu_cpu.dat',
+        function (data) {
+        Highcharts.chart('manu_cpu', {
+          chart: {
+            backgroundColor: 'rgba(255, 255, 255, 0)',            zoomType: 'x',
+            borderColor: '#3B82F6',
+            borderRadius: 10,
+            borderWidth: 1,
+            type: 'line'
+          },
+          lang: {
+            loading: 'Chargement...',
+            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
+            exportButtonTitle: "Exporter",
+            printButtonTitle: "Imprimer",
+            rangeSelectorFrom: "Du",
+            rangeSelectorTo: "au",
+            rangeSelectorZoom: "Période",
+            downloadPNG: 'Télécharger en PNG',
+            downloadJPEG: 'Télécharger en JPEG',
+            downloadPDF: 'Télécharger en PDF',
+            downloadSVG: 'Télécharger en SVG',
+            resetZoom: "Réinitialiser le zoom",
+            resetZoomTitle: "Réinitialiser le zoom",
+            thousandsSep: " ",
+            decimalPoint: ',' 
+        },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'MANU_CPU'
+          },
+          xAxis: {
+            type: 'datetime'
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            area: {
+              fillColor: {
+                linearGradient: {
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1
+                },
+                stops: [
+                  [0, Highcharts.getOptions().colors[0]],
+                  [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+              },
+              marker: {
+                radius: 2
+              },
+              lineWidth: 1,
+              states: {
+                hover: {
+                  lineWidth: 1
+                }
+              },
+              threshold: null
+            }
+          },
+          series: [{
+            type: 'area',
+            name: 'VALUE',
+            data: data
+          }]
+        });
+      }
+    );
+</script>
+</div>
+        </br><footer class="fixed bottom-0 right-5">
+            <p class="break-all text-blue-500 no-underline">Write by <a class="inline-block text-blue-400 hover:text-blue-600 hover:text-underline text-center transform hover:scale-90 duration-300 ease-in-out" href="https://www.linkedin.com/in/emmanuel-aubertin/" target="_blank">Aubertin Emmanuel</a></p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+{
+    "MAIL_SERVER":"smtp.EXAMPLE.fr",
+    "MAIL_PORT":465,
+    "MAIL_USERNAME":"MAIL@EXAMPLE.fr",
+    "MAIL_PASSWORD":"PASSWD",
+    "MAIL_USE_TLS":false,
+    "MAIL_USE_SSL":true
+}
