@@ -44,7 +44,7 @@ La sonde doit contenir un commentaire avec les options par défaut, de faite, on
 ```
  
 **Les sorties :**</br>
-Les sortie des sondes sont semi-structuré, elles doivent prndre la forme :
+Les sorties des sondes sont semi-structurées, elles doivent prndre la forme :
 ```
 STATE: Message utilisateur 1, Message utilisateur 2 | DisplayName_user1=value;warning_value;critical_value DisplayName_user2=value;warning_value;critical_value
 ```
@@ -79,9 +79,8 @@ Voici un exemple de graphe généré par [watcher-cli.sh](cli/watcher-cli.sh) :
 
 ## **Alerte :**
 
-Watcher-soft bénéficie d'un système d'alerte par mail, personnalisable tant au niveau du contenu que celui de l'envoi. En effet, vous avez la possibilité de personnaliser le contenu du mail avec le [template](alerters/templates/mail.txt). De plus, vous pouvez paramétrer l'envoi de mail grâce au fichier présent dans le dossier [alerters/conf](alerters/conf/). Dans le ficher [mail.conf.json](alerters/conf/mail.conf.json) vous rentrerez la configuration du serveur SMTP de votre choix. Ensuite, nous avons le fichier receivers.conf](alerters/conf/receivers.conf); ici, il s'agit de choisir à qui l'on envoie le mail (RECEIVER), et qui sera en copie cachée (BCC). Pour envoyer un mail, il existe deux manières, la première est de passer par l'api (voir ici), et la seconde, de lancer le script MAIL_alerters.sh.
+Watcher-soft bénéficie d'un système d'alerte par mail, personnalisable tant au niveau du contenu que celui de l'envoi. En effet, vous avez la possibilité de personnaliser le contenu du mail avec le [template](alerters/templates/mail.txt). De plus, vous pouvez paramétrer l'envoi de mail grâce au fichier présent dans le dossier [alerters/conf](alerters/conf/). Dans le ficher [mail.conf.json](alerters/conf/mail.conf.json) vous rentrerez la configuration du serveur SMTP de votre choix. Ensuite, nous avons le fichier receivers.conf](alerters/conf/receivers.conf); ici, il s'agit de choisir à qui l'on envoie le mail (RECEIVER), et qui sera en copie cachée (BCC). Pour envoyer un mail, il existe deux manières, la première est de passer par l'api (voir [ici](#api)), et la seconde, de lancer le script [MAIL_alerters.sh](alerters/MAIL_alerters.sh).
 
-Pour envoyé un mail, il existe de manière, la première est de passer par l'api (voir [ici](#api)), et la seconde et de lancer le script [MAIL_alerters.sh](alerters/MAIL_alerters.sh)
 <div id='orchestrateur'/>
 
 ## **Orchestrateur :**
