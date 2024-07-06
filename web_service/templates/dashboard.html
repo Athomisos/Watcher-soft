@@ -48,28 +48,26 @@
               <tbody>
 <tr>
                       <td class="border border-blue-600"><p class="flex justify-center">HDD</p></td>
+<td class="border border-blue-600 bg-green-300"><p class="flex justify-center">Ok</p></td>                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consome 1184Mo</p><p class="flex justify-center"> L'utilisateur root consome 32Mo </p></td>
+                </tr>
+<tr>
+                      <td class="border border-blue-600"><p class="flex justify-center">MEM</p></td>
 <td class="border border-blue-600 bg-red-500 text-gray-200"><p class="flex justify-center">CRITICAL</p></td>
-                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consome 224512Mo</p><p class="flex justify-center"> L'utilisateur root consome 464Mo </p></td>
+                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consomme 192716800 de RAM  </p></td>
                 </tr>
 <tr>
                       <td class="border border-blue-600"><p class="flex justify-center">USER</p></td>
 <td class="border border-blue-600 bg-green-300"><p class="flex justify-center">Ok</p></td>                  <td class="border border-blue-600 "><p class="flex justify-center"> Utilisateurs connectes</p></td>
                 </tr>
 <tr>
-                      <td class="border border-blue-600"><p class="flex justify-center">MEM</p></td>
-<td class="border border-blue-600 bg-red-500 text-gray-200"><p class="flex justify-center">CRITICAL</p></td>
-                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consomme 3933974528 de RAM  </p></td>
-                </tr>
-<tr>
                       <td class="border border-blue-600"><p class="flex justify-center">CPU</p></td>
-<td class="border border-blue-600 bg-red-500 text-gray-200"><p class="flex justify-center">CRITICAL</p></td>
-                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consomme 11.15 0e cpu  </p></td>
+<td class="border border-blue-600 bg-green-300"><p class="flex justify-center">Ok</p></td>                  <td class="border border-blue-600 "><p class="flex justify-center"> L'utilisateur manu consomme 0.0 0e cpu  </p></td>
                 </tr>
   </tbody></table>
 </div><div class="mt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
 <div id="home_root" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
 <script>Highcharts.getJSON(
-              'http://localhost:5000/rrd/json?filename=data-home_root.dat',
+              'http://192.168.1.112:5000/rrd/json?filename=data-home_root.dat',
         function (data) {
         Highcharts.chart('home_root', {
           chart: {
@@ -151,7 +149,7 @@
 </script>
 <div id="home_manu" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
 <script>Highcharts.getJSON(
-              'http://localhost:5000/rrd/json?filename=data-home_manu.dat',
+              'http://192.168.1.112:5000/rrd/json?filename=data-home_manu.dat',
         function (data) {
         Highcharts.chart('home_manu', {
           chart: {
@@ -231,91 +229,9 @@
       }
     );
 </script>
-<div id="nbr_user" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
-<script>Highcharts.getJSON(
-              'http://localhost:5000/rrd/json?filename=data-nbr_user.dat',
-        function (data) {
-        Highcharts.chart('nbr_user', {
-          chart: {
-            backgroundColor: 'rgba(255, 255, 255, 0)',            zoomType: 'x',
-            borderColor: '#3B82F6',
-            borderRadius: 10,
-            borderWidth: 1,
-            type: 'line'
-          },
-          lang: {
-            loading: 'Chargement...',
-            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
-            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
-            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
-            exportButtonTitle: "Exporter",
-            printButtonTitle: "Imprimer",
-            rangeSelectorFrom: "Du",
-            rangeSelectorTo: "au",
-            rangeSelectorZoom: "Période",
-            downloadPNG: 'Télécharger en PNG',
-            downloadJPEG: 'Télécharger en JPEG',
-            downloadPDF: 'Télécharger en PDF',
-            downloadSVG: 'Télécharger en SVG',
-            resetZoom: "Réinitialiser le zoom",
-            resetZoomTitle: "Réinitialiser le zoom",
-            thousandsSep: " ",
-            decimalPoint: ',' 
-        },
-          credits: {
-            enabled: false
-          },
-          title: {
-            text: 'NBR_USER'
-          },
-          xAxis: {
-            type: 'datetime'
-          },
-          yAxis: {
-            title: {
-              text: ''
-            }
-          },          legend: {
-            enabled: false
-          },
-          plotOptions: {
-            area: {
-              fillColor: {
-                linearGradient: {
-                  x1: 0,
-                  y1: 0,
-                  x2: 0,
-                  y2: 1
-                },
-                stops: [
-                  [0, Highcharts.getOptions().colors[0]],
-                  [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                ]
-              },
-              marker: {
-                radius: 2
-              },
-              lineWidth: 1,
-              states: {
-                hover: {
-                  lineWidth: 1
-                }
-              },
-              threshold: null
-            }
-          },
-          series: [{
-            type: 'area',
-            name: 'VALUE',
-            data: data
-          }]
-        });
-      }
-    );
-</script>
 <div id="manu_mem" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
 <script>Highcharts.getJSON(
-              'http://localhost:5000/rrd/json?filename=data-manu_mem.dat',
+              'http://192.168.1.112:5000/rrd/json?filename=data-manu_mem.dat',
         function (data) {
         Highcharts.chart('manu_mem', {
           chart: {
@@ -395,9 +311,91 @@
       }
     );
 </script>
+<div id="nbr_user" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
+<script>Highcharts.getJSON(
+              'http://192.168.1.112:5000/rrd/json?filename=data-nbr_user.dat',
+        function (data) {
+        Highcharts.chart('nbr_user', {
+          chart: {
+            backgroundColor: 'rgba(255, 255, 255, 0)',            zoomType: 'x',
+            borderColor: '#3B82F6',
+            borderRadius: 10,
+            borderWidth: 1,
+            type: 'line'
+          },
+          lang: {
+            loading: 'Chargement...',
+            months: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+            weekdays: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+            shortMonths: ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'aoû', 'sep', 'oct', 'nov', 'déc'],
+            exportButtonTitle: "Exporter",
+            printButtonTitle: "Imprimer",
+            rangeSelectorFrom: "Du",
+            rangeSelectorTo: "au",
+            rangeSelectorZoom: "Période",
+            downloadPNG: 'Télécharger en PNG',
+            downloadJPEG: 'Télécharger en JPEG',
+            downloadPDF: 'Télécharger en PDF',
+            downloadSVG: 'Télécharger en SVG',
+            resetZoom: "Réinitialiser le zoom",
+            resetZoomTitle: "Réinitialiser le zoom",
+            thousandsSep: " ",
+            decimalPoint: ',' 
+        },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'NBR_USER'
+          },
+          xAxis: {
+            type: 'datetime'
+          },
+          yAxis: {
+            title: {
+              text: ''
+            }
+          },          legend: {
+            enabled: false
+          },
+          plotOptions: {
+            area: {
+              fillColor: {
+                linearGradient: {
+                  x1: 0,
+                  y1: 0,
+                  x2: 0,
+                  y2: 1
+                },
+                stops: [
+                  [0, Highcharts.getOptions().colors[0]],
+                  [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+              },
+              marker: {
+                radius: 2
+              },
+              lineWidth: 1,
+              states: {
+                hover: {
+                  lineWidth: 1
+                }
+              },
+              threshold: null
+            }
+          },
+          series: [{
+            type: 'area',
+            name: 'VALUE',
+            data: data
+          }]
+        });
+      }
+    );
+</script>
 <div id="manu_cpu" class="z-0 graph transition duration-300 ease-in-out transform rounded-lg hover:-translate-y-1 hover:scale-125 hover:bg-blue-200"></div>
 <script>Highcharts.getJSON(
-              'http://localhost:5000/rrd/json?filename=data-manu_cpu.dat',
+              'http://192.168.1.112:5000/rrd/json?filename=data-manu_cpu.dat',
         function (data) {
         Highcharts.chart('manu_cpu', {
           chart: {

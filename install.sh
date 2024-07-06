@@ -62,7 +62,7 @@ shift
 done
 
 if [ $UID -ne 0 ]; then
-    echo -e "\e[1;31mError :\e[22m To install RasPiMusic you need root privileges\e[0m"
+    echo -e "\e[1;31mError :\e[22m To install WatcherSoft you need root privileges\e[0m"
     exit 1
 fi
 
@@ -75,8 +75,6 @@ function ask_yes_or_no() {
     return 1
 }
 
-if [ $# - ]
-#Install python3 and lib
 echo -e "\e[32m--------| \e[1;32mINSTALATION OF DEPENDENCIES\e[32m |--------\e[0m"
 apt install -y python3-pip rrdtool sqlite3 git gnuplot python3-json
 
@@ -90,3 +88,5 @@ git clone https://github.com/Athomisos/Watcher-soft.git
 
 echo -e "\e[32m--------| \e[1;32mADD ORCHESTRATOR TO CRON.D\e[32m |--------\e[0m"
 echo "$CRON_TIME * * * * root $(pwd -P)/orchestrator/Watcher-Soft.sh" > /etc/cron.d/Watcher-Soft
+
+echo -e "🚀 Watcher soft is now installed 🚀\n"
