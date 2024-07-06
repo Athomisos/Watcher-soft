@@ -2,5 +2,6 @@
 /datas/rra/*.rrd
 /datas/dat/*.dat
 /web_service/node_module/*
-/web_service/__pycache__
 /log/*.log
+
+__pycache__
